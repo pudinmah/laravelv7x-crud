@@ -14,11 +14,13 @@ class ProductController extends Controller
 
     public function store(Request $request)
     {
-        Product::create([
-            'product_name'=> $request->product_name,
-            'price'=>$request->price,
-            'stock'=>$request->stock,
-        ]);
+        // Product::create([
+        //     'product_name'=> $request->product_name,
+        //     'price'=>$request->price,
+        //     'stock'=>$request->stock,
+        // ]);
+
+        Product::create($request->all());
 
         return redirect('/products');
     }
@@ -31,7 +33,8 @@ class ProductController extends Controller
 
     public function edit($id)
     {
-        $product = Product::where('id', $id)->first();
+        // $product = Product::where('id', $id)->first();
+        $product = Product::findOrFail($id);
 
         // dd($product);
 
@@ -40,11 +43,13 @@ class ProductController extends Controller
 
     public function update(Request $request, $id)
     {
-        Product::where('id', $id)->update([
-            'product_name'=> $request->product_name,
-            'price'=>$request->price,
-            'stock'=>$request->stock
-        ]);
+        // Product::where('id', $id)->update([
+        //     'product_name'=> $request->product_name,
+        //     'price'=>$request->price,
+        //     'stock'=>$request->stock
+        // ]);
+
+        Product::findOrFail($id)->update($request->all());
 
         return redirect('/products');
     }
