@@ -38,26 +38,20 @@
                 </tr>
             </thead>
             <tbody>
+                @foreach ($products as $product)
                 <tr>
-                    <td>1</td>
-                    <td>Django</td>
-                    <td>Rp2000</td>
-                    <td>20</td>
+                    <td>{{$loop->interation}} </td>
+                    <td>{{$product->product_name}} </td>
+                    <td>{{$product->price}} </td>
+                    <td>{{$product->stock}} </td>
                     <td>
                         <a href="" class="btn btn-success">Edit</a>
                         <button type="submit" class="btn btn-danger">Delete</button>
                     </td>
                 </tr>
-                <tr>
-                    <td>1</td>
-                    <td>Django</td>
-                    <td>Rp2000</td>
-                    <td>20</td>
-                    <td>
-                        <a href="" class="btn btn-success">Edit</a>
-                        <button type="submit" class="btn btn-danger">Delete</button>
-                    </td>
-                </tr>
+
+                @endforeach
+
             </tbody>
         </table>
     </div>
