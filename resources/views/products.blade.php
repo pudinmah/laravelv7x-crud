@@ -40,12 +40,12 @@
             <tbody>
                 @foreach ($products as $product)
                 <tr>
-                    <td>{{$loop->interation}} </td>
+                    <td>{{$loop->iteration}} </td>
                     <td>{{$product->product_name}} </td>
                     <td>{{$product->price}} </td>
                     <td>{{$product->stock}} </td>
                     <td>
-                        <a href="" class="btn btn-success">Edit</a>
+                        <a href="/edit/{{$product->id}}" class="btn btn-success">Edit</a>
                         <button type="submit" class="btn btn-danger">Delete</button>
                     </td>
                 </tr>

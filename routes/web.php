@@ -17,6 +17,8 @@ Route::get('/', 'ProductController@home');
 
 Route::get('/products', 'ProductController@viewProduct');
 
-Route::get('/edit', 'ProductController@edit');
+Route::get('/edit/{id}', 'ProductController@edit');
 
 Route::post('/store', 'ProductController@store');
+
+Route::patch('/update/{id}', 'ProductController@update');
